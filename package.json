@@ -1,0 +1,18 @@
+{
+  "name": "Atrina-Brunch",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "brunch": "^1.7.20",
+    "jade-brunch": "^1.8.1",
+    "javascript-brunch": "^1.7.1",
+    "sass-brunch": "^1.8.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

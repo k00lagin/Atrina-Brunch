@@ -1,0 +1,74 @@
+#player {
+  box-sizing: border-box;
+  width: 100%;
+  height: 273px;
+  padding-top: .2em;
+  position: relative;
+  font-family: 'fira_sansbold';
+  font-size: 1em;
+  text-align: center;
+  color: #fff;
+  background: url(../img/music.svg) center no-repeat #ee5555;
+  background-size: 60%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); }
+  #player #side-player-play {
+    background-image: url(../img/play.svg);
+    bottom: 1em;
+    right: 1.5em; }
+  #player #side-player-pause {
+    background-image: url(../img/pause.svg);
+    bottom: 1em;
+    right: 1.5em; }
+  #player button {
+    width: 2em;
+    height: 2em;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: transparent;
+    border-style: none;
+    position: absolute; }
+  #player.active {
+    background: url(../img/cover-blur.png) no-repeat center;
+    background-size: cover;
+    box-shadow: 0px 0px 2em rgba(0, 0, 0, 0.4) inset; }
+    #player.active #side-player-volume {
+      background-image: url(../img/volume-0.svg);
+      bottom: 1em;
+      left: 1.5em; }
+    #player.active #side-player-volume.volume-1 {
+      background-image: url(../img/volume-0.svg), url(../img/volume-1.svg); }
+    #player.active #side-player-volume.volume-2 {
+      background-image: url(../img/volume-0.svg), url(../img/volume-2.svg); }
+    #player.active #side-player-volume.volume-3 {
+      background-image: url(../img/volume-0.svg), url(../img/volume-3.svg); }
+    #player.active #side-player-volume.volume-4 {
+      background-image: url(../img/volume-0.svg), url(../img/volume-4.svg); }
+    #player.active div {
+      position: absolute;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 0.1em;
+      bottom: 0em;
+      transition: height .2s .5s;
+      overflow: hidden; }
+      #player.active div #downloaded {
+        height: 0.15em;
+        width: 0%;
+        position: absolute;
+        bottom: 0;
+        background-color: #aaa; }
+      #player.active div #position {
+        height: 0.15em;
+        width: 0%;
+        position: absolute;
+        bottom: 0;
+        background-color: #fff; }
+      #player.active div #bar {
+        height: 0.15em;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: #000; }
+    #player.active:hover > div {
+      height: 1em;
+      transition: height .2s; }

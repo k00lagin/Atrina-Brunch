@@ -1,0 +1,303 @@
+a,h1,h2,time,p {
+	margin: 0;
+	padding: 0;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 20px;
+	font-weight: 800;
+}
+.arrow
+{
+	
+}
+.arrow:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent; 
+}
+.arrow.before
+{
+	width: 13px;
+	height: 8px;
+	background: #111;
+	margin-top: 8px;
+	margin-left: 10px;  
+}
+.arrow.before:after
+{
+	top: 3px;
+	right: 14px;
+	border: 9px solid transparent;
+	border-right-color: #111;
+}
+.arrow.next
+{
+	width: 13px;
+	height: 8px;
+	background: #111;
+	margin-top: 8px;
+	margin-left: 1px;  
+}
+.arrow.next:after
+{
+	top: 3px;
+	right: -8px;
+	border: 9px solid transparent;
+	border-left-color: #111;
+}
+a.before
+{
+	left: 410px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	bottom: 0px;
+}
+a.next
+{
+
+	right: 60px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	bottom: 0px;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000000;
+}
+
+h1
+{
+	position: absolute;
+	top: 0;
+	margin-top: 1rem;
+	padding-left: 4rem;
+	font-size: 1rem;
+}
+
+h2
+{
+padding-top: 1em;
+text-align: center;
+font-size: 1.1rem;
+}
+
+time
+{
+	font-size: 0.6rem;
+	color: #666;
+	text-align: center;
+}
+
+html
+{
+	margin: 0;
+	padding: 0;
+	background-color: #eaeaea;
+	font-size: 20px;
+}
+body
+{
+	width: unset;
+	padding: 0;
+	margin: 0;
+}
+header
+{
+	width: 100%;
+	top: 0;
+	height: 3em;
+	background-color: #e4e4e4;
+	position: relative;
+	box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+header > a
+{
+	display: block;
+	float: left;
+	height: 3rem;
+	width: 3rem;
+}
+header > a > img
+{
+	width: 3em;
+	height: 3em;
+}
+header > nav
+{
+	display: block;
+	width: 3rem;
+	height: 3rem;
+	float: right;
+	overflow: hidden;
+	transition: width .2s .3s, height .5s, background 0s .5s;
+	position: absolute;
+	top: 0;
+	right: 4px;
+	z-index: 10;
+}
+header > nav.exp
+{
+	width: 9rem;
+	height: 17rem;
+	background: #eee;
+	box-shadow: 2px 2px 6px;
+	transition: width .2s, height .5s,box-shadow .3s .2s;
+}
+header > nav > a
+{
+	float: right;
+	display: block;
+	text-align: left;
+	width: 78%;
+	height: 2rem;
+	border-bottom: 1px solid #666;
+	box-sizing: border-box;
+	font-size: .6rem;
+	margin-right: 1rem;
+	padding-top: .6rem;
+	padding-left: .5rem;
+}
+header > nav > a:last-child
+{
+	border: none;
+}
+#menu
+{
+	float: right;
+	width: 3rem;
+	height: 3rem;
+	border-radius:0;
+	border: none;
+	background: none;
+	padding: 0;
+	position: relative;
+	box-shadow:none;
+}
+#menu > div,#menu > div:after,#menu > div:before
+{
+	display: block;
+	width: 10%;
+	height: 10%;
+	border-radius: 50%;
+	background: #666;
+	position: absolute;
+}
+#menu > div
+{
+	left: 45%;
+	top: 45;
+}
+#menu > div:after
+{
+	content: "";
+	top: 160%;
+	width: 100%;
+	height: 100%;
+}
+#menu > div:before
+{
+	content: "";
+	bottom: 160%;
+	width: 100%;
+	height: 100%;
+}
+aside
+{
+	width: 100%;
+	height: 3em;
+	background-color: #eaeaea;
+	box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+aside>div
+{
+	float: left;
+	width: 50%;
+	height: 3em;
+}
+aside>div:first-child
+{
+	border-right: 1px solid #555;
+	box-sizing: border-box;
+}
+aside>div>a
+{
+	display: block;
+	height: 100%;
+	text-align: center;
+}
+main
+{
+	width: 96%;
+	background-color: #e4e4e4;
+	margin: .6rem auto;
+	box-shadow: 1px 1px 3px;
+	padding: .2rem .5rem;
+	box-sizing: border-box;
+}
+footer
+{
+	background-color: #e4e4e4;
+	height: 3em;
+}
+main.concert-test>div#cal
+{
+	background-color: #efefef;
+	width: 100%;
+	text-align: center;
+}
+main.concert-test h1
+{
+	display: none;
+}
+main.concert-test .row
+{
+	height: 3em;
+	width: 100%;
+	font-size: 1.3rem;
+}
+main.concert-test .row>div
+{
+	width: 14.285%;
+	height: 3em;
+	text-align: center;
+	position: relative;
+	float: left;
+	padding-top: 1em;
+	box-sizing: border-box;
+}
+main.concert-test .row>div:nth-child(n+6)
+{
+	background-color: #eaeaea;
+}
+main.concert-test .row>div[title]:before
+{
+	content: "";
+	width: 50%;
+	height: 50%;
+	background-color: #f95252;
+	cursor: pointer;
+}
+#tTitle
+{
+	height: 4em;
+	width: 100%;
+	background-color: #aaa;
+}
+#tTitle>div
+{
+	width: 60%;
+	float: left;
+	height: 3em;
+	padding-top: 1em;
+	box-sizing: border-box;
+}
+#tTitle>div:first-child,#tTitle>div:last-child
+{
+	width: 20%
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'import';
+		link.href = '404.html'
+		link.onload = function(e) {
+			var content = document.querySelector('link[rel="import"]').import;
+			document.body.appendChild(content);
+		};
+		document.head.appendChild(link);
+	</script> 
+</body>
+</html>

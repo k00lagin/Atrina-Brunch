@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: #000; }
+
+html {
+  font-size: 16px;
+  background-color: #fff; }
+
+body {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  background-color: #E4E4E4;
+  box-shadow: 0px 0.3em 1em -0.6em; }
+  @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+    body {
+      width: 842px;
+      margin: 50px auto 40px auto; } }
+
+header {
+  width: 100%;
+  background-color: #ccc;
+  padding-bottom: 1em;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 700; }
+  @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+    header {
+      height: 6em;
+      padding-bottom: 0em; } }
+  header #logo {
+    background: url(../img/logo.png) no-repeat center;
+    background-size: 90%;
+    float: left;
+    width: 4em;
+    height: 4em; }
+    @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+      header #logo {
+        height: 6em;
+        width: 6em; } }
+  header #menu {
+    display: none;
+    float: right;
+    width: 4em;
+    height: 4em; }
+    @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+      header #menu {
+        display: none !important; } }
+  header nav {
+    height: 16em;
+    width: 100%;
+    float: left;
+    overflow: hidden; }
+    header nav a {
+      display: block;
+      height: 4em;
+      box-sizing: border-box;
+      padding-top: 2em;
+      padding-left: 1.5em; }
+      header nav a:hover {
+        color: #F95252; }
+      @media only screen and (max-width: 841px) and (max-device-width: 841px) {
+        header nav a {
+          width: 80%;
+          border-bottom-style: solid;
+          margin-left: 1em; } }
+      @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+        header nav a {
+          float: right;
+          height: 3em;
+          padding-top: 1em;
+          padding-left: .4em;
+          padding-right: .4em; } }
+    @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+      header nav {
+        float: right;
+        height: 3em !important;
+        margin-top: 3em;
+        width: auto; } }
+
+aside {
+  display: none; }
+  @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+    aside {
+      display: block;
+      float: left;
+      width: 130px;
+      height: 546px;
+      /*273px;*/ }
+      aside .widget {
+        height: 273px; } }
+
+main {
+  width: 100%;
+  background-color: #eee; }
+  @media only screen and (min-width: 842px) and (min-device-width: 842px) {
+    main {
+      float: left;
+      width: 582px;
+      min-height: 546px; } }
+  main article {
+    font-family: "Fira Sans",sans-serif;
+    font-weight: 400; }
+    main article h2 {
+      margin-top: 1.5em;
+      padding-left: 18%; }
+    main article time {
+      width: 10%;
+      float: left;
+      margin-top: 0em;
+      margin-left: 3%;
+      font-weight: 700;
+      text-align: center; }
+    main article p {
+      width: 80%;
+      float: left;
+      margin-left: 5%;
+      margin-top: 0em;
+      margin-bottom: 1em; }
+
+footer {
+  width: 100%;
+  height: 3em;
+  float: left;
+  margin-top: .3em; }
+  footer a {
+    margin-left: 2em;
+    margin-right: 2em; }
+
+a:hover {
+  color: #00B7FF; }
+
+.clearfix:after {
+  content: "&nbsp";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
