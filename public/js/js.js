@@ -475,7 +475,10 @@ if (supportsImports()) {
 		var anchor = anchors[i];
 		if (anchor.getAttribute('href'))
 		{
-			anchor.onclick = function(e) { link.href="imports/"+this.getAttribute('href'); e.preventDefault();}
+			anchor.onclick = function(e) { 
+				link.href="imports/"+this.getAttribute('href'); e.preventDefault();
+				history.pushState(null,null,this.getAttribute('href'));
+			}
 		}
 	}
 } else {
