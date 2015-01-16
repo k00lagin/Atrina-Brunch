@@ -462,10 +462,10 @@ if (supportsImports()) {
 		{
 	  			document.getElementsByClassName("main")[0].removeChild(document.getElementsByClassName("main")[0].firstChild);
 		}
-		while (donor.firstChild) 
+		for (var i=0; i<donor.children.length; i++)
 		{
-	  			document.getElementsByClassName("main")[0].appendChild(donor.firstChild.cloneNode(true))
-	  			donor.removeChild(donor.firstChild);
+	  			document.getElementsByClassName("main")[0].appendChild(donor.children[i].cloneNode(true));
+	  			//donor.removeChild(donor.firstChild);
 		}
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
@@ -475,8 +475,7 @@ if (supportsImports()) {
 		var anchor = anchors[i];
 		if (anchor.getAttribute('href'))
 		{
-			anchor.onclick = function(e) { link.href="imports/"+this.href; e.preventDefault();}
-			//anchor.removeAttribute("href");
+			anchor.onclick = function(e) { link.href="imports/"+this.getAttribute('href'); e.preventDefault();}
 		}
 	}
 } else {
