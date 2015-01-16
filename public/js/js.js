@@ -470,6 +470,15 @@ if (supportsImports()) {
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
 	document.head.appendChild(link);
+	var anchors = document.getElementsByTagName("header")[0].getElementsByTagName('a');
+	for (var i=0; i<anchors.length; i++){
+		var anchor = anchors[i];
+		if (anchor.getAttribute('href'))
+		{
+			anchor.onclick = function(e) { link.href="imports/"+this.href; e.preventDefault();}
+			//anchor.removeAttribute("href");
+		}
+	}
 } else {
   // bad :(
 }
