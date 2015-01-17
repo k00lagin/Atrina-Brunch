@@ -467,6 +467,24 @@ if (supportsImports()) {
 				document.getElementsByClassName("main")[0].appendChild(donor.children[i].cloneNode(true));
 				//donor.removeChild(donor.firstChild);
 		}
+		var donor = document.querySelector('link[rel="import"]').import.getElementsByTagName("aside")[0];
+		while (document.getElementsByTagName("aside")[0].firstChild) 
+		{
+				document.getElementsByTagName("aside")[0].removeChild(document.getElementsByTagName("aside")[0].firstChild);
+		}
+		for (var i=0; i<donor.children.length; i++)
+		{
+				document.getElementsByTagName("aside")[0].appendChild(donor.children[i].cloneNode(true));
+		}
+		var donor = document.querySelector('link[rel="import"]').import.getElementsByTagName("aside")[1];
+		while (document.getElementsByTagName("aside")[1].firstChild) 
+		{
+				document.getElementsByTagName("aside")[1].removeChild(document.getElementsByTagName("aside")[1].firstChild);
+		}
+		for (var i=0; i<donor.children.length; i++)
+		{
+				document.getElementsByTagName("aside")[1].appendChild(donor.children[i].cloneNode(true));
+		}
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
 	document.head.appendChild(link);
@@ -479,7 +497,6 @@ if (supportsImports()) {
 				link.href="imports/"+this.getAttribute('href'); e.preventDefault();
 				history.pushState(null,null,this.getAttribute('href'));
 				document.querySelector('header>nav>a.a').removeAttribute('class');
-				//document.querySelector('a:not([href])')[0].setAttribute('href',)
 				document.querySelector("header>nav>a[href$='"+this.getAttribute('href')+"']").setAttribute('class','a');
 
 			}
