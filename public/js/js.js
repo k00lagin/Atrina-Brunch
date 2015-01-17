@@ -531,3 +531,7 @@ var lastY = 0;
 var mOnClose;
 window.onload = function() {initMedia(); showNotification();}
 window.onhashchange = function() {hashReact();}
+window.addEventListener("popstate", function(e) {
+	link.href="imports/"+window.location.href.split('/')[window.location.href.split('/').length-1];
+    initMedia(); showNotification();
+}, false)
