@@ -458,6 +458,8 @@ if (supportsImports()) {
 	{
 		console.log('Loaded import: ' + e.target.href);
 		var donor = document.querySelector('link[rel="import"]').import.getElementsByClassName("main")[0];
+		document.getElementsByTagName("title")[0].innerHTML = donor.children[0].innerHTML;
+		document.getElementsByTagName("html")[0].setAttribute('class',donor.children[1].innerHTML);
 		while (document.getElementsByClassName("main")[0].firstChild) 
 		{
 				document.getElementsByClassName("main")[0].removeChild(document.getElementsByClassName("main")[0].firstChild);
