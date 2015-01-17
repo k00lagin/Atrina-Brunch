@@ -487,17 +487,33 @@ if (supportsImports()) {
 		{
 				document.getElementsByTagName("aside")[1].appendChild(donor.children[i].cloneNode(true));
 		}
+		initMedia(); showNotification();
+		var anchors = document.querySelectorAll("a:not([href^='http'])[href$='.html']");
+		for (var i=0; i<anchors.length; i++)
+		{
+			var anchor = anchors[i];
+			if (anchor.getAttribute('href'))
+			{
+				anchor.onclick = function(e) { 
+					link.href="imports/"+this.getAttribute('href'); 
+					history.pushState(null,null,this.getAttribute('href')); 
+					e.preventDefault();
+				}
+			}
+		}
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
 	document.head.appendChild(link);
 	var anchors = document.querySelectorAll("a:not([href^='http'])[href$='.html']");
-	for (var i=0; i<anchors.length; i++){
+	for (var i=0; i<anchors.length; i++)
+	{
 		var anchor = anchors[i];
 		if (anchor.getAttribute('href'))
 		{
 			anchor.onclick = function(e) { 
-				link.href="imports/"+this.getAttribute('href'); e.preventDefault();
-				history.pushState(null,null,this.getAttribute('href'));
+				link.href="imports/"+this.getAttribute('href'); 
+				history.pushState(null,null,this.getAttribute('href')); 
+				e.preventDefault();
 			}
 		}
 	}
