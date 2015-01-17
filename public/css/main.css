@@ -396,7 +396,18 @@ footer > nav > a {
   height: 24px;
   float: left;
   margin-left: 14.32%; }
-
+html.news header > nav > a[href^="i"],
+html.concert header > nav > a[href^="conc"],
+html.albums header > nav > a[href^="al"],
+html.photo header > nav > a[href^="p"],
+html.media_p header > nav > a[href^="p"],
+html.merch header > nav > a[href^="m"],
+html.about header > nav > a[href^="ab"],
+html.bio header > nav > a[href^="ab"],
+html.contacts header > nav > a[href^="cont"]
+{
+  color: #f95252;
+}
 [href^="http://yo"] {
   background-position: -96px 0; }
 

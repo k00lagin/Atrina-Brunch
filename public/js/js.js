@@ -490,7 +490,7 @@ if (supportsImports()) {
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
 	document.head.appendChild(link);
-	var anchors = document.getElementsByTagName("header")[0].getElementsByTagName('a');
+	var anchors = document.querySelectorAll("a:not([href^='http'])[href$='.html']");
 	for (var i=0; i<anchors.length; i++){
 		var anchor = anchors[i];
 		if (anchor.getAttribute('href'))
@@ -498,9 +498,6 @@ if (supportsImports()) {
 			anchor.onclick = function(e) { 
 				link.href="imports/"+this.getAttribute('href'); e.preventDefault();
 				history.pushState(null,null,this.getAttribute('href'));
-				document.querySelector('header>nav>a.a').removeAttribute('class');
-				document.querySelector("header>nav>a[href$='"+this.getAttribute('href')+"']").setAttribute('class','a');
-
 			}
 		}
 	}
