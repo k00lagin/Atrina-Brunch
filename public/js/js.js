@@ -452,7 +452,7 @@ function supportsImports() {
 }
 
 if (supportsImports()) {
-  	var link = document.createElement('link');
+	var link = document.createElement('link');
 	link.rel = 'import';
 	link.onload = function(e)
 	{
@@ -460,12 +460,12 @@ if (supportsImports()) {
 		var donor = document.querySelector('link[rel="import"]').import.getElementsByClassName("main")[0];
 		while (document.getElementsByClassName("main")[0].firstChild) 
 		{
-	  			document.getElementsByClassName("main")[0].removeChild(document.getElementsByClassName("main")[0].firstChild);
+				document.getElementsByClassName("main")[0].removeChild(document.getElementsByClassName("main")[0].firstChild);
 		}
 		for (var i=0; i<donor.children.length; i++)
 		{
-	  			document.getElementsByClassName("main")[0].appendChild(donor.children[i].cloneNode(true));
-	  			//donor.removeChild(donor.firstChild);
+				document.getElementsByClassName("main")[0].appendChild(donor.children[i].cloneNode(true));
+				//donor.removeChild(donor.firstChild);
 		}
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
@@ -478,11 +478,15 @@ if (supportsImports()) {
 			anchor.onclick = function(e) { 
 				link.href="imports/"+this.getAttribute('href'); e.preventDefault();
 				history.pushState(null,null,this.getAttribute('href'));
+				document.querySelector('header>nav>a.a').removeAttribute('class');
+				//document.querySelector('a:not([href])')[0].setAttribute('href',)
+				document.querySelector("header>nav>a[href$='"+this.getAttribute('href')+"']").setAttribute('class','a');
+
 			}
 		}
 	}
 } else {
-  // bad :(
+	// bad :(
 }
 var photoQueue = [];
 var photoPreload = [];

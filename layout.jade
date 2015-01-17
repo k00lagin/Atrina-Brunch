@@ -1,9 +1,6 @@
 mixin navItem(href, itemTheme, itemText)
 	if (theme===itemTheme)
-		if (onTop===true)
-			a(class='a') #{itemText}
-		else
-			a(href='#{href}' class='a') #{itemText}
+		a(href='#{href}' class='a') #{itemText}	
 	else
 		a(href='#{href}') #{itemText}
 doctype html
