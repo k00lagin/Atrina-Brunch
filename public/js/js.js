@@ -510,11 +510,11 @@ function gotoImport(h)
 		document.querySelector('link[rel="import"]').remove();
 		link.remove();
 	};
-	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
+	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);		document.querySelector('link[rel="import"]').remove();
+		link.remove();};
 	document.head.appendChild(link);
 }
 if (supportsImports()) {
-
 	initLinks();
 } else {
 	// bad :(
