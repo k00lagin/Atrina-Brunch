@@ -450,10 +450,28 @@ function hideNotification()
 function supportsImports() {
   return 'import' in document.createElement('link');
 }
-
-if (supportsImports()) {
+function initLinks()
+{
+	var anchors = document.querySelectorAll("a:not([href^='http'])[href$='.html']");
+	for (var i=0; i<anchors.length; i++)
+	{
+		var anchor = anchors[i];
+		if (anchor.getAttribute('href'))
+		{
+			anchor.onclick = function(e) { 
+				gotoImport(this.getAttribute('href'));
+				//link.href="imports/"+this.getAttribute('href'); 
+				history.pushState(null,null,this.getAttribute('href')); 
+				e.preventDefault();
+			}
+		}
+	}
+}
+function gotoImport(h)
+{
 	var link = document.createElement('link');
 	link.rel = 'import';
+	link.href="imports/"+h;
 	link.onload = function(e)
 	{
 		console.log('Loaded import: ' + e.target.href);
@@ -488,35 +506,16 @@ if (supportsImports()) {
 				document.getElementsByTagName("aside")[1].appendChild(donor.children[i].cloneNode(true));
 		}
 		initMedia(); showNotification();
-		var anchors = document.querySelectorAll("a:not([href^='http'])[href$='.html']");
-		for (var i=0; i<anchors.length; i++)
-		{
-			var anchor = anchors[i];
-			if (anchor.getAttribute('href'))
-			{
-				anchor.onclick = function(e) { 
-					link.href="imports/"+this.getAttribute('href'); 
-					history.pushState(null,null,this.getAttribute('href')); 
-					e.preventDefault();
-				}
-			}
-		}
+		initLinks();
+		document.querySelector('link[rel="import"]').remove();
+		link.remove();
 	};
 	link.onerror = function(e) {console.log('Error loading import: ' + e.target.href);};
 	document.head.appendChild(link);
-	var anchors = document.querySelectorAll("a:not([href^='http'])[href$='.html']");
-	for (var i=0; i<anchors.length; i++)
-	{
-		var anchor = anchors[i];
-		if (anchor.getAttribute('href'))
-		{
-			anchor.onclick = function(e) { 
-				link.href="imports/"+this.getAttribute('href'); 
-				history.pushState(null,null,this.getAttribute('href')); 
-				e.preventDefault();
-			}
-		}
-	}
+}
+if (supportsImports()) {
+
+	initLinks();
 } else {
 	// bad :(
 }
