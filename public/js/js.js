@@ -1,7 +1,9 @@
 function initMedia()
 {
 	if (lastLocation!==document.location.href.split('#')[0])
-	{	var anchors = document.getElementsByTagName('a');
+	{	
+		var photoQueue = undefined;
+		var anchors = document.getElementsByTagName('a');
 		for (var i=0; i<anchors.length; i++){
 			var anchor = anchors[i];
 			var relAttribute = String(anchor.getAttribute('rel'));
