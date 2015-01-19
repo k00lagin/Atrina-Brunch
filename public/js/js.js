@@ -1,45 +1,48 @@
 function initMedia()
 {
-	var anchors = document.getElementsByTagName('a');
-	for (var i=0; i<anchors.length; i++){
-		var anchor = anchors[i];
-		var relAttribute = String(anchor.getAttribute('rel'));
-		if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('mediavideo')))
-		{
-			if (anchor.href.indexOf('vk.com')!== -1)
+	if (lastLocation!==document.location.href.split('#')[0])
+	{	var anchors = document.getElementsByTagName('a');
+		for (var i=0; i<anchors.length; i++){
+			var anchor = anchors[i];
+			var relAttribute = String(anchor.getAttribute('rel'));
+			if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('mediavideo')))
 			{
-				var a = anchor.href.split('-')[1];
-				var mediaSrc = anchor.href.split('-')[0]+'_ext.php?oid=-'+a.split('_')[0]+'&id='+a.split('_')[1]+'&hash='+anchor.getAttribute('hash');
-			}
-			else if (anchor.href.indexOf('youtube.com')!== -1)
-			{
-				var mediaSrc = anchor.href.split('watch?v=',2)[0]+'/embed/'+anchor.href.split('watch?v=',2)[1]+'?showinfo=0';
-			}
-			var mediaTitle = anchor.title;
-			anchor.onclick = function () {showVideo(mediaSrc,mediaTitle);return false;}
-			anchor.removeAttribute('href');
-		}
-		if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('mediaphoto')))
-		{
-			photoQueue.push(anchor.href);
-			var queuePos = photoQueue.length-1;
-			anchor.rel = queuePos;
-			anchor.onclick = function () {showPhoto(this);}
-			anchor.removeAttribute('href');
-		}
-		if (photoQueue!=undefined)
-		{
-			preloadPhoto(0);
-			window.onresize = function() {if (currentPos!=undefined){resize();}}
-			var h = getHash();
-			if (h!=undefined)
-			{
-				if ((h.split('&')[0]=='photo')&&(parseInt(h.split('&')[1],10)>=0)&&(parseInt(h.split('&')[1],10)<photoQueue.length))
+				if (anchor.href.indexOf('vk.com')!== -1)
 				{
-					showPhoto(undefined,parseInt(h.split('&')[1],10));
+					var a = anchor.href.split('-')[1];
+					var mediaSrc = anchor.href.split('-')[0]+'_ext.php?oid=-'+a.split('_')[0]+'&id='+a.split('_')[1]+'&hash='+anchor.getAttribute('hash');
+				}
+				else if (anchor.href.indexOf('youtube.com')!== -1)
+				{
+					var mediaSrc = anchor.href.split('watch?v=',2)[0]+'/embed/'+anchor.href.split('watch?v=',2)[1]+'?showinfo=0';
+				}
+				var mediaTitle = anchor.title;
+				anchor.onclick = function () {showVideo(mediaSrc,mediaTitle);return false;}
+				anchor.removeAttribute('href');
+			}
+			if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('mediaphoto')))
+			{
+				photoQueue.push(anchor.href);
+				var queuePos = photoQueue.length-1;
+				anchor.rel = queuePos;
+				anchor.onclick = function () {showPhoto(this);}
+				anchor.removeAttribute('href');
+			}
+			if (photoQueue!=undefined)
+			{
+				preloadPhoto(0);
+				window.onresize = function() {if (currentPos!=undefined){resize();}}
+				var h = getHash();
+				if (h!=undefined)
+				{
+					if ((h.split('&')[0]=='photo')&&(parseInt(h.split('&')[1],10)>=0)&&(parseInt(h.split('&')[1],10)<photoQueue.length))
+					{
+						showPhoto(undefined,parseInt(h.split('&')[1],10));
+					}
 				}
 			}
 		}
+		lastLocation=document.location.href.split('#')[0];
 	}
 }
 function showPhoto(photo,number)
@@ -167,9 +170,9 @@ function prepareEnvironment()
 function prevPhoto()
 {
 	if (currentPos!=undefined && photoQueue.length > 1)
-	{
-		currentPos = (currentPos - 1);
-		if (currentPos<0){currentPos=photoQueue.length-1;}
+	{	
+		if (currentPos<=0){currentPos=photoQueue.length-1;}
+		else {currentPos = (currentPos - 1);}
 		if (photoPreload[currentPos]==undefined)
 		{
 			preloadPhoto(currentPos);
@@ -525,6 +528,7 @@ var photoWidth = [];
 var photoHeight = [];
 var currentPos;
 var msideState;
+var lastLocation;
 var lastX = 0;
 var lastY = 0;
 var mOnClose;
