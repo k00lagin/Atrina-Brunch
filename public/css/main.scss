@@ -2,11 +2,12 @@ $htmlColor:			#eaeaea;
 $backgroundColor:	#e4e4e4;
 $backgroundHover:	#b8b8b8;
 $textColorHover:	#404040;
-$nextEventDate: '19';
-$nextEventMonth: "Июль";
 html{
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	background-color: $htmlColor;
 }
 a,h1,h2,time,p,span {
 	margin: 0;
@@ -28,13 +29,6 @@ a,h1,h2,time,p,span {
 .video{	background-position:	  0px	 -98px;}
 .album{	background-position:	-96px	   0px;}
 .buy  {	background-position:	 -1px	   0px;}
-.up {
-	margin: -1000px 0 0 50px;
-	padding: 0;
-}
-.rider{
-	height: 550px;
-}
 .arrow:after
 {
     content: "";
@@ -107,12 +101,6 @@ h2
 	padding-top: 40px;
 	padding-left: 50px;
 	font-size: 28px;
-}
-html
-{
-	margin: 0;
-	padding: 0;
-	background-color: $htmlColor;
 }
 body
 {
@@ -348,6 +336,40 @@ body
 	padding: 10px 5px;
 	box-sizing: border-box;
 }
+html.news header > nav > a[href^="i"],
+html.concert header > nav > a[href^="conc"],
+html.albums header > nav > a[href^="al"],
+html.photo header > nav > a[href^="p"],
+html.media_p header > nav > a[href^="p"],
+html.merch header > nav > a[href^="m"],
+html.about header > nav > a[href^="ab"],
+html.bio header > nav > a[href^="ab"],
+html.contacts header > nav > a[href^="cont"]
+{
+  color: #f95252;
+}
+html.news header > nav > a[href^="i"]:hover,
+html.concert header > nav > a[href^="conc"]:hover,
+html.albums header > nav > a[href^="al"]:hover,
+html.photo header > nav > a[href^="p"]:hover,
+html.media_p header > nav > a[href^="p"]:hover,
+html.merch header > nav > a[href^="m"]:hover,
+html.about header > nav > a[href^="ab"]:hover,
+html.bio header > nav > a[href^="ab"]:hover,
+html.contacts header > nav > a[href^="cont"]:hover,
+html.news header > nav > a[href^="i"]:focus,
+html.concert header > nav > a[href^="conc"]:focus,
+html.albums header > nav > a[href^="al"]:focus,
+html.photo header > nav > a[href^="p"]:focus,
+html.media_p header > nav > a[href^="p"]:focus,
+html.merch header > nav > a[href^="m"]:focus,
+html.about header > nav > a[href^="ab"]:focus,
+html.bio header > nav > a[href^="ab"]:focus,
+html.contacts header > nav > a[href^="cont"]:focus,
+{
+  background-color: #f95252;
+  color: $backgroundColor;
+}
 html > body > header
 {
 	width: 842px;
@@ -373,12 +395,8 @@ html > body > header
 			padding: 60px 7px;
 			font-size: 18px;
 
-			&.a
-			{
-				color: #f95252;
-			}
-
-			&[href$=".html"]:hover
+			&[href$=".html"]:hover,
+			&[href$=".html"]:focus
 			{
 				color:		$textColorHover;
 				background:	$backgroundHover;
