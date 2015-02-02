@@ -343,7 +343,10 @@ html > body > header {
     height: 123px;
     margin-top: 10px;
     margin-left: 27px;
-    border: none; }
+    border: none;
+    background-size: contain;
+    background-image: url(../image/af1.png);
+    background-image: linear-gradient(transparent, transparent), url(../image/atrina.svg); }
   html > body > header nav {
     float: right;
     margin-right: 1.5em; }

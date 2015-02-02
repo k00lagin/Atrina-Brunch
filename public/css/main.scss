@@ -387,6 +387,9 @@ html > body > header
 		margin-top: 10px;
 		margin-left: 27px;
 		border: none;
+		background-size: contain;
+  		background-image: url(../image/af1.png);
+  		background-image: linear-gradient(transparent, transparent), url(../image/atrina.svg);
 	}
 	nav
 	{
