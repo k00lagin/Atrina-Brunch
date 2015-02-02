@@ -2,6 +2,9 @@ $htmlColor:			#eaeaea;
 $backgroundColor:	#e4e4e4;
 $backgroundHover:	#b8b8b8;
 $textColorHover:	#404040;
+h1,h2,p,time{
+  cursor:default;
+}
 html{
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: 20px;

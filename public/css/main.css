@@ -1,3 +1,6 @@
+h1, h2, p, time {
+  cursor: default; }
+
 html {
   font-family: Tahoma, Arial, sans-serif;
   font-size: 20px;

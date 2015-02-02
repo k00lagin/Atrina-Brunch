@@ -36,8 +36,9 @@ html(lang="ru" class='#{theme}')
 				a(class="close-link" onclick="closeMedia();") Закрыть
 			div(id="content-box" onclick="nextPhoto();")
 	header
-		a(href="index.html" tabindex="-1")
-			img(src="image/af1.png" alt="logotype")
+		a(href="index.html" tabindex="-1").
+			<svg width="123" height="123">
+				<image xlink:href="image/ATRINA.svg" src="image/af1.png" width="123" height="123"/></svg>
 		nav
 			button(id="menu")
 			a(href="index.html" tabindex="1") Новости
